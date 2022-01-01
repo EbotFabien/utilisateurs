@@ -4,7 +4,7 @@ import random
 from flask_cors import CORS,cross_origin
 
 
-agent_sec = db.collection('Agentsec')
+agent_sec = db.collection('Utilisateurs')
 
 
 
@@ -16,22 +16,15 @@ users =Blueprint('users',__name__)
 @users.route('/Agentsec/ajouter', methods=['POST'])
 def create():
     try:
-        id=[doc.to_dict() for doc in agent_sec.stream()]#[-1]['id']
-        id=[int(i['id']) for i in id]
-        id.sort()
-        id=str(id[-1]+1)
-    except:
-        id='0'
-    if id:
+        id=request.json['id']
         request.json['id']=str(id)
-        request.json['pass']=bcrypt.generate_password_hash(request.json['pass']).decode('utf-8')
         todo = agent_sec.document(id).get()
         if  todo.to_dict() is None :
             agent_sec.document(id).set(request.json)
             return jsonify({"success": True}), 200
         else:
             return jsonify({"Fail": "donnee exist deja"}), 400
-    else:
+    except:
         return 400
 
 @cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content-Type','Authorization'])
