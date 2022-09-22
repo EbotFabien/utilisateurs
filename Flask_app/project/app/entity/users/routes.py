@@ -1,5 +1,6 @@
 from flask import render_template, url_for,flash,redirect,request,abort,Blueprint,jsonify
 from app import db,bcrypt
+import random
 
 
 agent_sec = db.collection('Agentsec')
@@ -12,8 +13,13 @@ users =Blueprint('users',__name__)
 
 @users.route('/Agentsec/ajouter', methods=['POST'])
 def create():
-    id = request.json['id']
+    try:
+        id=[doc.to_dict() for doc in agent_sec.stream()][-1]['id']
+        id=str(int(id)+1)
+    except:
+        id='0'
     if id:
+        request.json['id']=str(id)
         request.json['pass']=bcrypt.generate_password_hash(request.json['pass']).decode('utf-8')
         todo = agent_sec.document(id).get()
         if  todo.to_dict() is None :

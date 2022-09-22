@@ -12,8 +12,13 @@ agentcon =Blueprint('agentcon',__name__)
 
 @agentcon.route('/Agentcon/ajouter', methods=['POST'])
 def create():
-    id = request.json['id']
+    try:
+        id=[doc.to_dict() for doc in agent_con.stream()][-1]['id']
+        id=str(int(id)+1)
+    except:
+        id='0'
     if id:
+        request.json['id']=str(id)
         request.json['pass']=bcrypt.generate_password_hash(request.json['pass']).decode('utf-8')
         todo = agent_con.document(id).get()
         if  todo.to_dict() is None :
@@ -24,12 +29,12 @@ def create():
     else:
         return 400
 
-@agentcon.route('/Agentsec/tous', methods=['GET'])
+@agentcon.route('/Agentcon/tous', methods=['GET'])
 def read():
     all_todos = [doc.to_dict() for doc in agent_con.stream()]
     return jsonify(all_todos), 200
 
-@agentcon.route('/Agentsec/<int:ide>', methods=['GET'])
+@agentcon.route('/Agentcon/<int:ide>', methods=['GET'])
 def read_ind(ide):
     todo_id = str(ide)
     
@@ -40,7 +45,7 @@ def read_ind(ide):
         else:
             return jsonify(todo.to_dict()), 200
 
-@agentcon.route('/Agentsec/update/<int:ide>', methods=['POST', 'PUT'])
+@agentcon.route('/Agentcon/update/<int:ide>', methods=['POST', 'PUT'])
 def update(ide):
         todo_id = str(ide)
         todo = agent_con.document(todo_id).get()
@@ -50,7 +55,7 @@ def update(ide):
             agent_con.document(todo_id).update(request.json)
             return jsonify({"success": True}), 200
 
-@agentcon.route('/Agentsec/delete/<int:ide>', methods=['GET', 'DELETE'])
+@agentcon.route('/Agentcon/delete/<int:ide>', methods=['GET', 'DELETE'])
 def delete(ide):
     todo_id = str(ide)
     todo = agent_con.document(todo_id).get()

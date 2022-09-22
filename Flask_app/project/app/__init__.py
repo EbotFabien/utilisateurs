@@ -13,7 +13,7 @@ from firebase_admin import credentials, firestore, initialize_app
 
 
 
-cred = credentials.Certificate('/Users/pro2015/Desktop/users/Flask_app/project/app/key.json')
+cred = credentials.Certificate('app/key.json')
 default_app = initialize_app(cred)
 db = firestore.client()
 bcrypt = Bcrypt()
@@ -31,10 +31,12 @@ def create_app(config_class=Config):
     from app.entity.users.routes import users
     from app.entity.agentc.routes import agentcon
     from app.entity.admin.routes import admin
+    from app.entity.client.routes import client
     
     app.register_blueprint(users)
     app.register_blueprint(agentcon)
     app.register_blueprint(admin)
+    app.register_blueprint(client)
     
 
 
