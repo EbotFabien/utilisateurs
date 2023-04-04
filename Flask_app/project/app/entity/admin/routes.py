@@ -3,6 +3,9 @@ from app import db,bcrypt
 from flask_cors import CORS,cross_origin
 
 admi_n = db.collection('Admin')
+agent_sec = db.collection('Agentsec')
+agent_con = db.collection('Agentcon')
+clien_t= db.collection('Client')
 
 
 
@@ -36,6 +39,20 @@ def create():
 def read():
     all_todos = [doc.to_dict() for doc in admi_n.stream()]
     return jsonify(all_todos), 200
+
+@cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content- Type','Authorization'])
+@admin.route('/users/tous', methods=['GET'])
+def read_all():
+    all_admin = [doc.to_dict() for doc in admi_n.stream()]
+    all_agent_sec = [doc.to_dict() for doc in agent_sec.stream()]
+    all_client = [doc.to_dict() for doc in clien_t.stream()]
+    all_con = [doc.to_dict() for doc in agent_con.stream()]
+    return jsonify({"Admin": all_admin,
+        "Agent_secteur": all_agent_sec,
+        "Client": all_client,
+        "Agent_Constat": all_con,
+        }), 200
+    
 
 @cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content- Type','Authorization'])
 @admin.route('/Admin/<string:ide>', methods=['GET'])#hide data

@@ -34,6 +34,7 @@ def create_app(config_class=Config):
     bcrypt.init_app(app)
 
     CORS(app, resources={r"/Admin/*": {"origins": "*"}})
+    CORS(app, resources={r"/users/*": {"origins": "*"}})
     CORS(app, resources={r"/Client/*": {"origins": "*"}})
     CORS(app, resources={r"/Agentsec/*": {"origins": "*"}})
     CORS(app, resources={r"/Agentcon/*": {"origins": "*"}})
