@@ -28,18 +28,18 @@ def create_app(config_class=Config):
         response = make_response()
         response.headers.add("Access-Control-Allow-Origin", "http://127.0.0.1")
         response.headers.add("Access-Control-Allow-Headers", "*")
-        response.headers.add("Access-Control-Allow-Methods", "GET")
+        response.headers.add("Access-Control-Allow-Methods", "GET","POST",)
 
    
     bcrypt.init_app(app)
 
-    CORS(app, resources={r"/Admin/*": {"origins": "*"}})
-    CORS(app, resources={r"/users/*": {"origins": "*"}})
-    CORS(app, resources={r"/Client/*": {"origins": "*"}})
-    CORS(app, resources={r"/Agentsec/*": {"origins": "*"}})
-    CORS(app, resources={r"/Agentcon/*": {"origins": "*"}})
+    CORS(app, resources={r"/Admin/*": {"origins": ["http://127.0.0.1","http://195.15.218.172","*"]}})
+    CORS(app, resources={r"/users/*": {"origins": ["http://127.0.0.1","http://195.15.218.172","*"]}})
+    CORS(app, resources={r"/Client/*": {"origins": ["http://127.0.0.1","http://195.15.218.172","*"]}})
+    CORS(app, resources={r"/Agentsec/*": {"origins": ["http://127.0.0.1","http://195.15.218.172","*"]}})
+    CORS(app, resources={r"/Agentcon/*": {"origins": ["http://127.0.0.1","http://195.15.218.172","*"]}})
 
-    app.config['CORS_HEADERS'] = 'Content-Type'
+    app.config['CORS_HEADERS'] = ['Content- Type','Authorization']
    
 
     from app.entity.users.routes import users
