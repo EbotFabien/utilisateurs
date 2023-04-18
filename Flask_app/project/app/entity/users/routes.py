@@ -12,7 +12,7 @@ agent_sec = db.collection('Agentsec')
 
 users =Blueprint('users',__name__)
 
-@cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'])
+@cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'],automatic_options=False)
 @users.route('/Agentsec/ajouter', methods=['POST'])
 def create():
     try:
@@ -21,7 +21,7 @@ def create():
     except:
         id='0'
     if id:
-        print(request.data)
+        print(request.args)
         request.json['uuid']=str(id)
         request.json['pass']=bcrypt.generate_password_hash(request.json['pass']).decode('utf-8')
         todo = agent_sec.document(id).get()
