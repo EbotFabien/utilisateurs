@@ -16,9 +16,9 @@ users =Blueprint('users',__name__)
 @users.route('/Agentsec/ajouter', methods=['POST'])
 def create():
     try:
-        id=[doc.to_dict() for doc in agent_sec.stream()].sort()
-        id=id[-1]['id']
-        id=str(int(id)+1)
+        id=[doc.to_dict() for doc in agent_sec.stream()]#[-1]['id']
+        id=len(id)
+        #id=str(int(id)+1)
     except:
         id='0'
     if id:
