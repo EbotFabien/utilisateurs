@@ -21,6 +21,7 @@ def create():
     except:
         id='0'
     if id:
+        print(request.data)
         request.json['uuid']=str(id)
         request.json['pass']=bcrypt.generate_password_hash(request.json['pass']).decode('utf-8')
         todo = agent_sec.document(id).get()
