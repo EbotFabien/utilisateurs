@@ -22,7 +22,7 @@ def create():
     except:
         id='0'
     if id:
-        request.json['uuid']=str(id)
+        request.json['id']=str(id)
         request.json['password']=bcrypt.generate_password_hash(request.json['password']).decode('utf-8')
         todo = admi_n.document(id).get()
         if  todo.to_dict() is None :
