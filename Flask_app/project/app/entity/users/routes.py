@@ -21,7 +21,6 @@ def create():
     except:
         id='0'
     if id:
-        print(request.args)
         request.json['uuid']=str(id)
         request.json['pass']=bcrypt.generate_password_hash(request.json['pass']).decode('utf-8')
         todo = agent_sec.document(id).get()
@@ -51,7 +50,7 @@ def read_ind(ide):
         else:
             return jsonify(todo.to_dict()), 200
 
-@cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content-Type','Authorization'])
+@cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'],automatic_options=False)
 @users.route('/Agentsec/update/<int:ide>', methods=['POST', 'PUT'])
 def update(ide):
         todo_id = str(ide)
@@ -62,7 +61,7 @@ def update(ide):
             agent_sec.document(todo_id).update(request.json)
             return jsonify({"success": True}), 200
 
-@cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content-Type','Authorization'])
+@cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'],automatic_options=False)
 @users.route('/Agentsec/delete/<int:ide>', methods=['GET', 'DELETE'])
 def delete(ide):
     todo_id = str(ide)

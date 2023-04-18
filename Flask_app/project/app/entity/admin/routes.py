@@ -13,7 +13,7 @@ clien_t= db.collection('Client')
 
 admin =Blueprint('admin',__name__)
 
-@cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content- Type','Authorization'])
+@cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'],automatic_options=False)
 @admin.route('/Admin/ajouter', methods=['POST'])
 def create():
     try:
@@ -22,7 +22,7 @@ def create():
     except:
         id='0'
     if id:
-        request.json['id']=str(id)
+        request.json['uuid']=str(id)
         request.json['password']=bcrypt.generate_password_hash(request.json['password']).decode('utf-8')
         todo = admi_n.document(id).get()
         if  todo.to_dict() is None :
@@ -66,7 +66,7 @@ def read_ind(ide):
         else:
             return jsonify(todo.to_dict()), 200
 
-@cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content- Type','Authorization'])
+@cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'],automatic_options=False)
 @admin.route('/Admin/update/<int:ide>', methods=['POST', 'PUT'])
 def update(ide):
         todo_id = str(ide)
@@ -77,7 +77,7 @@ def update(ide):
             admi_n.document(todo_id).update(request.json)
             return jsonify({"success": True}), 200
 
-@cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content- Type','Authorization'])
+@cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'],automatic_options=False)
 @admin.route('/Admin/delete/<int:ide>', methods=['GET', 'DELETE'])
 def delete(ide):
     todo_id = str(ide)
