@@ -23,7 +23,7 @@ def create():
         id='0'
     if id:
         request.json['id']=str(id)
-        request.json['password']=bcrypt.generate_password_hash(request.json['password']).decode('utf-8')
+        request.json['pass']=bcrypt.generate_password_hash(request.json['pass']).decode('utf-8')
         todo = admi_n.document(id).get()
         if  todo.to_dict() is None :
             admi_n.document(id).set(request.json)
