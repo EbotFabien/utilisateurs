@@ -18,7 +18,9 @@ admin =Blueprint('admin',__name__)
 def create():
     try:
         id=[doc.to_dict() for doc in admi_n.stream()]#[-1]['id']
-        id=str(len(id))
+        id=[int(i['id']) for i in id]
+        id.sort()
+        id=str(id[-1]+1)
     except:
         id='0'
     if id:
