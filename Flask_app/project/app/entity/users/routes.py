@@ -18,7 +18,6 @@ def create():
     try:
         id=[doc.to_dict() for doc in agent_sec.stream()]#[-1]['id']
         id=str(len(id))
-        #id=str(int(id)+1)
     except:
         id='0'
     if id:

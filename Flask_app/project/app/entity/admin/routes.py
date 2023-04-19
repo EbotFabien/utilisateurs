@@ -17,8 +17,8 @@ admin =Blueprint('admin',__name__)
 @admin.route('/Admin/ajouter', methods=['POST'])
 def create():
     try:
-        id=[doc.to_dict() for doc in admi_n.stream()][-1]['id']
-        id=str(int(id)+1)
+        id=[doc.to_dict() for doc in admi_n.stream()]#[-1]['id']
+        id=str(len(id))
     except:
         id='0'
     if id:
