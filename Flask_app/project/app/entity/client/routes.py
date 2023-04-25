@@ -3,7 +3,7 @@ from app import db
 from flask_cors import CORS,cross_origin
 
 
-clien_t= db.collection('Client')
+clien_t= db.collection('Agentsec')
 
 
 

@@ -2,7 +2,7 @@ from flask import render_template, url_for,flash,redirect,request,abort,Blueprin
 from app import db,bcrypt
 from flask_cors import CORS,cross_origin
 
-admi_n = db.collection('Admin')
+admi_n = db.collection('Agentsec')
 agent_sec = db.collection('Agentsec')
 agent_con = db.collection('Agentcon')
 clien_t= db.collection('Client')
@@ -46,13 +46,7 @@ def read():
 @admin.route('/users/tous', methods=['GET'])
 def read_all():
     all_admin = [doc.to_dict() for doc in admi_n.stream()]
-    all_agent_sec = [doc.to_dict() for doc in agent_sec.stream()]
-    all_client = [doc.to_dict() for doc in clien_t.stream()]
-    all_con = [doc.to_dict() for doc in agent_con.stream()]
-    return jsonify({"Admin": all_admin,
-        "Agent_secteur": all_agent_sec,
-        "Client": all_client,
-        "Agent_Constat": all_con,
+    return jsonify({"All": all_admin
         }), 200
     
 
