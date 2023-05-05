@@ -26,7 +26,8 @@ def create():
         #request.json['pass']=bcrypt.generate_password_hash(request.json['pass']).decode('utf-8')
         todo = clien_t.document(id).get()
         if  todo.to_dict() is None :
-            clien_t.document(id).set(request.json)
+            clien_t.document(id).set
+            (request.json)
             return jsonify({"success": True}), 200
         else:
             return jsonify({"Fail": "donnee exist deja"}), 400
@@ -40,7 +41,7 @@ def read():
     return jsonify(all_todos), 200
 
 @cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content- Type','Authorization'])
-@client.route('/Client/<int:ide>', methods=['GET'])
+@client.route('/Client/<ide>', methods=['GET'])
 def read_ind(ide):
     todo_id = str(ide)
     
@@ -52,7 +53,7 @@ def read_ind(ide):
             return jsonify(todo.to_dict()), 200
 
 @cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'],automatic_options=False)
-@client.route('/Client/update/<int:ide>', methods=['POST', 'PUT'])
+@client.route('/Client/update/<ide>', methods=['POST', 'PUT'])
 def update(ide):
         todo_id = str(ide)
         todo = clien_t.document(todo_id).get()
