@@ -34,7 +34,7 @@ def read():
     return jsonify(all_todos), 200
 
 @cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content-Type','Authorization'])
-@users.route('/Agentsec/<int:ide>', methods=['GET'])
+@users.route('/Agentsec/<ide>', methods=['GET'])
 def read_ind(ide):
     todo_id = str(ide)
     
@@ -46,7 +46,7 @@ def read_ind(ide):
             return jsonify(todo.to_dict()), 200
 
 @cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'],automatic_options=False)
-@users.route('/Agentsec/update/<int:ide>', methods=['POST', 'PUT'])
+@users.route('/Agentsec/update/<ide>', methods=['POST', 'PUT'])
 def update(ide):
         todo_id = str(ide)
         todo = agent_sec.document(todo_id).get()
@@ -57,7 +57,7 @@ def update(ide):
             return jsonify({"success": True}), 200
 
 @cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'],automatic_options=False)
-@users.route('/Agentsec/delete/<int:ide>', methods=['GET', 'DELETE'])
+@users.route('/Agentsec/delete/<ide>', methods=['GET', 'DELETE'])
 def delete(ide):
     todo_id = str(ide)
     todo = agent_sec.document(todo_id).get()
