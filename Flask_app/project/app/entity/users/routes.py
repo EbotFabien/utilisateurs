@@ -34,10 +34,14 @@ def read(start,limit,count):
         last_doc=agent_sec.document(start).get()
         last_pos=last_doc.to_dict()['id']      
         agent_sec=agent_sec.order_by('id').start_after({'id':last_pos}).limit(int(limit))
+        print(agent_sec)
+        print(agent_sec.stream())
         all_todos = [doc.to_dict() for doc in agent_sec.stream()]
         return jsonify(all_todos), 200
     else:
         agent_sec=agent_sec.order_by('id').limit(int(limit))
+        print(agent_sec)
+        print(agent_sec.stream())
         all_todos = [doc.to_dict() for doc in agent_sec.stream()]
         return jsonify(all_todos), 200
         #all_todos = [doc.to_dict() for doc in agent_sec.stream()]
