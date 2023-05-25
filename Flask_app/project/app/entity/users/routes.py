@@ -28,10 +28,19 @@ def create():
         return 400
 
 @cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content-Type','Authorization'])
-@users.route('/Agentsec/tous', methods=['GET'])
-def read():
-    all_todos = [doc.to_dict() for doc in agent_sec.stream()]
-    return jsonify(all_todos), 200
+@users.route('/Agentsec/tous/<start>/<limit>/<count>', methods=['GET'])
+def read(start,limit,count):
+    if start !=0:
+        last_doc=agent_sec.document(start).get()
+        last_pos=last_doc.to_dict()['id']      
+        next_query=agent_sec.order_by('id').start_after({'id':last_pos}).limit(int(limit))
+        return jsonify(next_query), 200
+    else:
+        next_query=agent_sec.order_by('id').limit(int(limit))
+        return jsonify(next_query), 200
+        #all_todos = [doc.to_dict() for doc in agent_sec.stream()]
+    
+    return  401
 
 @cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content-Type','Authorization'])
 @users.route('/Agentsec/<ide>', methods=['GET'])
