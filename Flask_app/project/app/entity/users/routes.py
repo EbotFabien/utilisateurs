@@ -3,6 +3,7 @@ from app import db,bcrypt
 import random
 from flask_cors import CORS,cross_origin
 from firebase_admin import credentials, firestore
+from google.cloud.firestore_v1.base_query import FieldFilter, Or
 
 
 agent_sec = db.collection('Utilisateurs')
@@ -45,6 +46,42 @@ def read(start,limit):
         #all_todos = [doc.to_dict() for doc in agent_sec.stream()]
     
     return  401
+
+@users.route('/users/<Type>/<category>', methods=['GET'])
+def search_ind(Type=None,category=None):
+    if Type == None:
+        filter_1 = FieldFilter("email", "==", category)
+        filter_2 = FieldFilter("nom", "==", category)
+        filter_3 = FieldFilter("prenom", "==", category)
+        or_filter = Or(filters=[filter_1, filter_2,filter_3])
+        todo = agent_sec.where(filter=or_filter)
+        all_todos=[]
+        for doc in todo.stream():
+            v=doc.to_dict()
+            v["id"]=doc.id
+            all_todos.append(v)
+        return jsonify(all_todos), 200
+    if category == None:
+        todo = agent_sec.where('role', '==',Type)
+        all_todos=[]
+        for doc in todo.stream():
+            v=doc.to_dict()
+            v["id"]=doc.id
+            all_todos.append(v)
+        return jsonify(all_todos), 200
+    else:
+        filter_1 = FieldFilter("email", "==", category)
+        filter_2 = FieldFilter("nom", "==", category)
+        filter_3 = FieldFilter("prenom", "==", category)
+        or_filter = Or(filters=[filter_1, filter_2,filter_3])
+        todo = agent_sec.where('role', '==',Type).where(filter=or_filter)
+        all_todos=[]
+        for doc in todo.stream():
+            v=doc.to_dict()
+            v["id"]=doc.id
+            all_todos.append(v)
+        return jsonify(all_todos), 200
+    
 
 @cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content-Type','Authorization'])
 @users.route('/Agentsec/<ide>', methods=['GET'])
