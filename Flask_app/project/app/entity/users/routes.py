@@ -47,7 +47,7 @@ def read(start,limit):
     
     return  401
 
-@users.route('/users/<Type>/<category>', methods=['GET'])
+@users.route('/Agentsec/<Type>/<category>', methods=['GET'])
 def search_ind(Type=None,category=None):
     if Type == None:
         filter_1 = FieldFilter("email", "==", category)
