@@ -6,6 +6,8 @@ class Config:
     MAIL_USE_TLS =True
     MAIL_USERNAME = 'touchone0001@gmail.com'
     MAIL_PASSWORD = 'onetouch000100'
+    WKHTMLTOPDF_BIN_PATH =r"/usr/local/bin"
+    WKHTMLTOPDF_USE_CELERY = True
 
 
 

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        @media print {
+            .new-page {
+                page-break-before: always;
+            }
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #DDD;
+        }
+        
+        tr:hover {
+            background-color: #D6EEEE;
+        }
+        
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        hr {
+            display: block;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: 2em;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 3px;
+            width: 700px;
+        }
+        
+        .ticket3 {
+            width: 480px;
+            height: 150px;
+            /* margin-top: 40px; */
+            margin-left: 100px;
+            /* margin-right: auto;  */
+            border: 5px solid black;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: 1fr;
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            position: relative;
+        }
+        
+        .ticket {
+            width: 480px;
+            height: 200px;
+            /* margin-top: 40px; */
+            margin-left: 60px;
+            /* margin-right: auto;  */
+            border: 1px solid navy;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: 1fr;
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            position: relative;
+        }
+        
+        .ticket1 {
+            width: 300px;
+            height: 200px;
+            margin-top: 20px;
+            /* margin-left: auto; */
+            margin-right: auto;
+            border: 1px solid navy;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: 1fr;
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            position: relative;
+        }
+        
+        .left {
+            height: 92%;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, auto);
+            grid-column-gap: 0px;
+            grid-row-gap: 10px;
+        }
+        
+        .rigthE {
+            height: 0%;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, auto);
+            grid-column-gap: 0px;
+            grid-row-gap: 10px;
+        }
+        
+        html,
+        body,
+        td {
+            font-size: 13px;
+        }
+        
+        #items {
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #items th,
+        #items td {
+            padding: 5px;
+            border: 1px solid black;
+        }
+        
+        #items tr td {
+            text-align: right;
+            width: 100px;
+        }
+        
+        .showname {
+            font-size: 40px;
+            font-weight: bold;
+            color: #9900ff;
+        }
+        
+        #items tr td:first-child {
+            text-align: left;
+            width: auto;
+        }
+        
+        .titre {
+            background-color: gray;
+            height: 40px;
+            font-size: 30px;
+        }
+        
+        .conte {
+            border: solid black 1px;
+            height: 150px;
+        }
+        
+        .con {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="width: 800px; margin-left: auto; margin-right: auto; margin-top: 50px;">
+        <div style="display: inline-block;  margin-left: auto; margin-right: auto; text-align: center;">
+
+            <img src="" width="100 " height="130 "> <br>
+        </div>
+
+        <div style="display: inline-block; margin-left: 150px; text-align: center;">
+            <strong style="font-size: 13px;"> <p width="20 ">TRUSTEXPERTISE -,<br> <br> AMEXPERT-CONSTATS D'HABITAT <br> 25 STATION ROAD B147SR <br> <br> BirminghamUK +33972647925 <br> contact@amexpert.biz
+            </p></strong>
+
+
+        </div>
+
+        <div style="display: inline-block; text-align: center; margin-left: 100px;">
+            <strong> CONSTAT ENTRANT </strong> <br> Rédaction du constat pour les parties <br><br> Le 15/05/2023 à 15h00 <br><strong> EDL n°48889</strong>
+            <br> <br></div>
+    </div>
+    <br><br><br>
+
+    <div class="titre" style="width: 800px; margin-left: auto; margin-right: auto">
+        <p style="text-align: left; margin-left: 30px;"> <strong> Logement</strong></p>
+
+    </div>
+    <div class="conte" style="width: 800px; margin-left: auto; margin-right: auto">
+        <p style="text-align: left; margin-left: 30px; font-size: 15px;"><strong style="font-size: 16px;"> 31..AVENUE AUGUSTE RENOIR <br> 78160 MARLY LE ROI</strong></p>
+
+        <div class="con">
+            <div style="display: inline-block;  margin-left: 40px; margin-right: auto; text-align: center;">
+
+                <strong> Code lot </strong> : 24703 <br> <strong> Refcommande </strong> : 29120 <br><strong> Ref lot client</strong> : XXX <br> <strong> Autre </strong> : XXX <br><strong> Type de logment </strong>: APPT-F1
+            </div>
+
+            <div style="display: inline-block; margin-left: 120px; text-align: center;">
+                <strong> Type de logment </strong>: APPT-F1<br> <strong> Meublé </strong>: NON <br> <strong> Code-Fact </strong>: TN100APPTF1 <br><strong> Parking</strong> : XXX
+
+            </div>
+
+            <div style="display: inline-block; text-align: center; margin-left: 100px;">
+                <strong> Surface </strong>: 17.20 <br> <strong> N°étage </strong>: RDC <br><strong>  N°porte </strong>: XXX <br> <strong> st Cave</strong>: XXX
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+
+
+
+
+    <br><br>
+    <table border="1px " style="width: 800px; margin-left: auto; margin-right: auto ">
+
+
+        <tr>
+            <td width="50px " height="50px ">
+                <p style="background-color: gray; font-size: 20px;"> <strong> BAILLEUR / DONNEUR D'ORDRE </p> BARBARA IMMOBILIER GIC IMMOBILIER </strong> <br>CENTRE COMMERCIAL DES GRANDES TERRES <br> <br> 78160MARLY LE ROI 0139161610- <br> agence##barbaraimmo.fr
+            </td>
+            <td>
+                <p style="background-color: gray; font-size: 20px; margin-bottom: 20px; "> <strong> LE LOCATAIRE</strong></p> <strong> POUPLIN MATHILDE</strong> <br><br><strong> Réf. </strong>:109169 <br>
+                <strong>Mobile </strong> : 06.17.21.73.90 <br>
+                <strong>  Mail </strong>: mitmat999@gmail.com
+            </td>
+
+        </tr>
+        <tr>
+            <td width="50px " height="50px ">
+                <p style="background-color: gray; font-size: 20px; margin-bottom: 20px; "><strong> LE PROPRIETAIRE</strong></p> <strong> TEIXEIRAROMAIN </strong><br><br><br> representé : </td>
+            <td width=" 50px " height="50px ">
+                <p style="background-color: gray; font-size: 20px; margin-bottom: 20px;"><strong>INFORMATIONS ADMINISTRATIVES</strong></p> <br><strong>Entré le </strong>: ____________ <strong> sortie le :__________ </strong><br> <strong> Date état des lieux entrant </strong><br> <strong> Nouvelle adresse </strong>: </td>
+        </tr>
+    </table> <br><br>
+    <br><br>
+
+    <p class="new-page ">Page 2</p>
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <td style="vertical-align: top; text-align: left ">
+                <strong> TRUSTEXPERTI3SE Ltd </strong><br> Code lot : <br>EDL n° : <br>
+                <td style="vertical-align: top; text-align: right ">
+                    <!-- <td style="vertical-align: top; width: 50% "> -->
+
+                    EDITIONDU15/05/2023 <br> CONSTAT ENTRANT <br> Etabli le 15/05/2023 à 15:00 par PHUNG VINCENT <br> En présence de POUPLIN MATHILDE
+
+                </td>
+
+        </tr>
+
+
+    </table>
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+
+        <tr>
+            <td style="vertical-align: top; padding-top: 20px; padding-bottom: 20px; ">
+
+
+                <hr> <strong style=" font-size: 20px; margin-left: 30px;">Description des constats</strong>
+                <hr>
+
+            </td>
+        </tr>
+
+    </table>
+    <table border="1px " style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <td><strong style="font-size: 16px; width: 40px;"> Informations diverses</strong></td>
+            <td><strong style="font-size: 16px; width: 1px; "> Présent </strong></td>
+            <td><strong style="font-size: 16px; width: 20px; "> Description</strong></td>
+
+        </tr>
+        <tr>
+            <center>
+                <td colspan="3 "><strong style="font-size: 16px; margin-left: 16px;">Informations Locataire</strong>
+                </td>
+            </center>
+        </tr>
+        <tr>
+            <td><img src="" width="100 " height="130 "> <br></td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+        <tr>
+            <center>
+                <td colspan="3 "><strong style=" font-size: 16px; margin-left: 16px;">Informations Agent de constat</strong></td>
+            </center>
+        </tr>
+        <tr>
+            <td><img src=" " width="100 " height="130 "> <br></td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+
+        <tr>
+            <center>
+                <td colspan="3 "><strong style=" font-size: 16px; margin-left: 16px;">Informations Techinques</strong></td>
+            </center>
+        </tr>
+        <tr>
+            <td><img src="" width="100 " height="130 "> <br></td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+
+    </table>
+    <br><br><br>
+
+
+
+    <p class="new-page ">Page 3</p> <br><br>
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <td style="vertical-align: top; text-align: left ">
+                <strong> TRUSTEXPERTI3SE Ltd </strong><br> Code lot : <br>EDL n° : <br>
+                <td style="vertical-align: top; text-align: right ">
+                    <!-- <td style="vertical-align: top; width: 50% "> -->
+
+                    EDITIONDU15/05/2023 <br> CONSTAT ENTRANT <br> Etabli le 15/05/2023 à 15:00 par PHUNG VINCENT <br> En présence de POUPLIN MATHILDE
+
+                </td>
+
+        </tr>
+
+
+    </table>
+
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+
+        <tr>
+            <td style="vertical-align: top; padding-top: 20px; padding-bottom: 20px; ">
+
+
+                <hr><strong style=" font-size: 20px; margin-left: 30px;">APPT : Configuration logement</strong>
+                <hr>
+            </td>
+        </tr>
+
+    </table>
+
+
+
+    <table border="1px " style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <td><strong style="font-size: 16px; width: 40px;"> Informations diverses</strong></td>
+            <td><strong style="font-size: 16px; width: 1px; "> Présent </strong></td>
+            <td><strong style="font-size: 16px; width: 20px; "> Description</strong></td>
+
+        </tr>
+        <tr>
+            <center>
+                <td colspan="3 "> <strong style="font-size: 16px; margin-left: 16px;">APPT : </strong></td>
+            </center>
+        </tr>
+        <tr>
+            <td><img src="" width="100 " height="130 "> <br></td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+        <tr>
+            <center>
+                <td colspan="3 "> <strong style="font-size: 16px; margin-left: 16px;">AAAA :</strong></td>
+            </center>
+        </tr>
+        <tr>
+            <td><img src="" width="100 " height="130 "> <br></td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+
+        <tr>
+            <center>
+                <td colspan="3 "><strong style="font-size: 16px; margin-left: 16px;">AAAA</strong></strong>
+                </td>
+            </center>
+        </tr>
+        <tr>
+            <td><img src="" width="100 " height="130 "> <br></td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+
+    </table>
+    <p class="new-page ">Page 4</p> <br><br>
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <td style="vertical-align: top; text-align: left ">
+                <strong> TRUSTEXPERTI3SE Ltd </strong><br> Code lot : <br>EDL n° : <br>
+                <td style="vertical-align: top; text-align: right ">
+                    <!-- <td style="vertical-align: top; width: 50% "> -->
+
+                    EDITIONDU15/05/2023 <br> CONSTAT ENTRANT <br> Etabli le 15/05/2023 à 15:00 par PHUNG VINCENT <br> En présence de POUPLIN MATHILDE
+
+                </td>
+
+        </tr>
+
+
+    </table>
+
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+
+        <tr>
+            <td style="vertical-align: top; padding-top: 20px; padding-bottom: 20px; ">
+
+
+                <hr> <strong style=" font-size: 20px; margin-left: 30px;">Description </strong>
+                <hr>
+
+            </td>
+        </tr>
+
+    </table>
+
+    <table border="1px " style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <td><strong style="font-size: 16px; width: 40px;"> Informations diverses</strong></td>
+            <td><strong style="font-size: 16px; width: 1px; "> Présent </strong></td>
+            <td><strong style="font-size: 16px; width: 20px; "> Description</strong></td>
+
+        </tr>
+        <tr>
+            <center>
+                <td colspan="3 "> <strong style="font-size: 16px; margin-left: 16px;">APPT : </strong></td>
+            </center>
+        </tr>
+        <tr>
+            <td><img src=" " width="100 " height="130 "> <br></td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+
+    </table>
+    <p class="new-page ">Page 5</p> <br><br>
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <td style="vertical-align: top; text-align: left ">
+                <strong> TRUSTEXPERTI3SE Ltd </strong><br> Code lot : <br>EDL n° : <br>
+                <td style="vertical-align: top; text-align: right ">
+                    <!-- <td style="vertical-align: top; width: 50% "> -->
+
+                    EDITIONDU15/05/2023 <br> CONSTAT ENTRANT <br> Etabli le 15/05/2023 à 15:00 par PHUNG VINCENT <br> En présence de POUPLIN MATHILDE
+
+                </td>
+
+        </tr>
+
+
+    </table>
+
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+
+        <tr>
+            <td style="vertical-align: top; padding-top: 20px; padding-bottom: 20px; ">
+                <strong> <u> APPT : Pièce de vie</u></strong>
+                <center>
+                    <hr><strong>Règlement / Payment : xxxxxxxxx  </strong> <strong>Contact : 694110505</strong>
+                    <hr>
+                </center>
+            </td>
+        </tr>
+
+    </table>
+
+    <table border="1px " style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <td width="60px " height="25px "><strong> Vue d'ensemble</strong></td>
+            <td width="10px "><strong> Etat </strong></td>
+            <td width="30 "><strong> Description</strong></td>
+
+        </tr>
+        <tr>
+            <center>
+                <td colspan="3 "><strong> APPT : Pièce de vie</strong></td>
+            </center>
+        </tr>
+        <tr>
+            <td><img src="" width="100 " height="130 "> <br></td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+
+    </table>
+
+    <p class="new-page ">Page 6</p> <br><br>
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <td style="vertical-align: top; text-align: left ">
+                <strong> TRUSTEXPERTI3SE Ltd </strong><br> Code lot : <br>EDL n° : <br>
+                <td style="vertical-align: top; text-align: right ">
+                    <!-- <td style="vertical-align: top; width: 50% "> -->
+
+                    EDITIONDU15/05/2023 <br> CONSTAT ENTRANT <br> Etabli le 15/05/2023 à 15:00 par PHUNG VINCENT <br> En présence de POUPLIN MATHILDE
+
+                </td>
+
+        </tr>
+
+
+    </table>
+
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+
+
+        <tr>
+            <td style="vertical-align: top; padding-top: 20px; padding-bottom: 20px; ">
+
+
+                <hr> <strong style=" font-size: 20px; margin-left: 30px;">Description des cles </strong>
+                <hr>
+
+            </td>
+        </tr>
+
+    </table>
+
+    <table border="1px " style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <th><strong>Cles</strong></th>
+            <th><strong> Remise </strong></th>
+            <th><strong> Rendu</strong></th>
+            <th> <strong>Observation</strong></th>
+
+        </tr>
+
+
+    </table>
+
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+
+
+        <tr>
+            <td style="vertical-align: top; padding-top: 20px; padding-bottom: 20px; ">
+
+
+                <hr> <strong style=" font-size: 20px; margin-left: 30px;">Relevés des compteurs </strong>
+                <hr>
+
+            </td>
+        </tr>
+    </table>
+
+    <table border="1px " style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <th><strong style=" font-size: 16px;">Compteur</strong></th>
+            <th><strong style=" font-size: 15px;"> Ancien
+                Index </strong></th>
+            <th><strong style=" font-size: 16px;"> Index
+                actuel</strong></th>
+            <th> <strong style=" font-size: 16px;">Matricule</strong></th>
+
+        </tr>
+
+
+    </table>
+
+    <p class="new-page ">Page 7</p> <br><br>
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+        <tr>
+            <td style="vertical-align: top; text-align: left ">
+                <strong> TRUSTEXPERTI3SE Ltd </strong><br> Code lot : <br>EDL n° : <br>
+                <td style="vertical-align: top; text-align: right ">
+                    <!-- <td style="vertical-align: top; width: 50% "> -->
+
+                    EDITIONDU15/05/2023 <br> CONSTAT ENTRANT <br> Etabli le 15/05/2023 à 15:00 par PHUNG VINCENT <br> En présence de POUPLIN MATHILDE
+
+                </td>
+
+        </tr>
+
+
+    </table>
+
+    <table style="width: 800px; margin-left: auto; margin-right: auto ">
+
+        <tr>
+            <td style="vertical-align: top; padding-top: 20px; padding-bottom: 20px; ">
+
+
+                <hr> <strong style=" font-size: 20px; margin-left: 30px;"><u> Approbation</u> </strong>
+                <hr>
+
+                <br><br>
+                <p style="text-align: justify; text-indent: 20px;"> Ce Constatd'Habitat atteste del’état d’un lieu constaté par un expert au jour de sa réalisation. Il est exclusif de tout avis sur les conséquences de fait ou de droit pouvant en résulter,et peut-être attesté selon le NCPC,et connaissance
+                    prise des dispositions de l’article 161 du code pénal réprimant l’établissement de fausses attestations.Il est réalisé par un professionnel tiers de confiance dûment habilité par la certification AMEXPERT sous validité de deux ans,
+                    sans lien de subordination avec les parties. Son contenu peut également, s’il est signé contradictoirement attester d’un état des lieux selon Article 3-2 de la loi N°89-462. Constatation ou approbation du contenu présent. Je reconnais
+                    les points relevés sur le constat d'habitat dont je recevrai un original.</p>
+
+                <br><br><br> <strong style="font-size: 20px;">Ce document est composé de :</strong>
+
+            </td>
+        </tr>
+
+
+
+
+    </table>
+
+    <table style="width: 600px; margin-left: 300px; ">
+        <tr>
+            <td style="vertical-align: top; text-align: left; font-size: 16px; ">
+                <strong>LOCATAIRE </strong><br><br>Nom : <br>Signature: <br> <br>
+                <td style="vertical-align: top; text-align: right ; font-size: 16px; ">
+                    <strong>Représentant du bailleur</strong><br> <br>Nom : <br>Signature: <br><br>
+
+                </td>
+
+        </tr>
+
+
+
+
+
+
+</body>
+
+</html>
