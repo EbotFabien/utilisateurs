@@ -6,12 +6,13 @@ from flask_wkhtmltopdf import Wkhtmltopdf
 import os
 import base64
 
+pd_f =Blueprint('pd_f',__name__)
 
 app= create_app()
 
 wkhtmltopdf =Wkhtmltopdf(app)
 
-pd_f =Blueprint('pd_f',__name__)
+
 
 @cross_origin(origin=["http://127.0.0.1:5274","http://195.15.228.250","*"],headers=['Content-Type','Authorization'],automatic_options=False)
 @pd_f.route('/print/file', methods=['POST'])

@@ -12,6 +12,7 @@ from flask_cors import CORS
 
 # Initialize Firestore DB
 
+#
 
 
 cred = credentials.Certificate('/work/www/microservice_edl/utilisateur/Flask_app/project/app/key.json')

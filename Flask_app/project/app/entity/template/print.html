@@ -173,7 +173,7 @@
         </div>
 
         <div style="display: inline-block; text-align: center; margin-left: 100px;">
-            <strong> CONSTAT ENTRANT </strong> <br> Rédaction du constat pour les parties <br><br> Le 15/05/2023 à 15h00 <br><strong> EDL n°48889</strong>
+            <strong> CONSTAT {% edl["type_edl"] %} </strong> <br> Rédaction du constat pour les parties <br><br> Le {% edl["date_sortie"] %} à {% edl["heure"] %} <br><strong> EDL n°48889</strong>
             <br> <br></div>
     </div>
     <br><br><br>
@@ -183,21 +183,21 @@
 
     </div>
     <div class="conte" style="width: 800px; margin-left: auto; margin-right: auto">
-        <p style="text-align: left; margin-left: 30px; font-size: 15px;"><strong style="font-size: 16px;"> 31..AVENUE AUGUSTE RENOIR <br> 78160 MARLY LE ROI</strong></p>
+        <p style="text-align: left; margin-left: 30px; font-size: 15px;"><strong style="font-size: 16px;">{% edl["logement"]["ville"] %} <br>{% edl["logement"]["code_postal"] %}</strong></p>
 
         <div class="con">
             <div style="display: inline-block;  margin-left: 40px; margin-right: auto; text-align: center;">
 
-                <strong> Code lot </strong> : 24703 <br> <strong> Refcommande </strong> : 29120 <br><strong> Ref lot client</strong> : XXX <br> <strong> Autre </strong> : XXX <br><strong> Type de logment </strong>: APPT-F1
+                <strong> Code lot </strong> : {% edl["logement"]["code_acces"] %} <br> <strong> Refcommande </strong> : 29120 <br><strong> Ref lot client</strong> : XXX <br> <strong> Autre </strong> : XXX <br><strong> Type de logment </strong>: APPT-F1
             </div>
 
             <div style="display: inline-block; margin-left: 120px; text-align: center;">
-                <strong> Type de logment </strong>: APPT-F1<br> <strong> Meublé </strong>: NON <br> <strong> Code-Fact </strong>: TN100APPTF1 <br><strong> Parking</strong> : XXX
+                <strong> Type de logment </strong>:{% edl["logement"]["code_acces"] %}<br> <strong> Meublé </strong>: {% edl["logement"]["meuble"] %} <br> <strong> Code-Fact </strong>: {% edl["logement"]["code_fact"] %} <br><strong> Parking</strong> : {% edl["logement"]["paking"] %}
 
             </div>
 
             <div style="display: inline-block; text-align: center; margin-left: 100px;">
-                <strong> Surface </strong>: 17.20 <br> <strong> N°étage </strong>: RDC <br><strong>  N°porte </strong>: XXX <br> <strong> st Cave</strong>: XXX
+                <strong> Surface </strong>:{% edl["logement"]["surface"] %} <br> <strong> N°étage </strong>:{% edl["logement"]["nbre_etage"] %} <br><strong>  N°porte </strong>:{% edl["logement"]["Num_porte"] %} <br> <strong> st Cave</strong>:{% edl["logement"]["cave"] %}
             </div>
         </div>
     </div>
@@ -214,7 +214,7 @@
 
         <tr>
             <td width="50px " height="50px ">
-                <p style="background-color: gray; font-size: 20px;"> <strong> BAILLEUR / DONNEUR D'ORDRE </p> BARBARA IMMOBILIER GIC IMMOBILIER </strong> <br>CENTRE COMMERCIAL DES GRANDES TERRES <br> <br> 78160MARLY LE ROI 0139161610- <br> agence##barbaraimmo.fr
+                <p style="background-color: gray; font-size: 20px;"> <strong> BAILLEUR / DONNEUR D'ORDRE </p>{%for key  in edl["signataires"] %} {% if key["role"] == "donneur_ordre"%}  {% key["nom"] %} {% key["prenom"] %}</strong> <br>{% key["complement_adresse"] %}<br> <br>{% key["ville"] %} {% key["telephone"] %} <br>{% key["email"] %}{% endif %}{% endfor %}
             </td>
             <td>
                 <p style="background-color: gray; font-size: 20px; margin-bottom: 20px; "> <strong> LE LOCATAIRE</strong></p> <strong> POUPLIN MATHILDE</strong> <br><br><strong> Réf. </strong>:109169 <br>
@@ -225,9 +225,9 @@
         </tr>
         <tr>
             <td width="50px " height="50px ">
-                <p style="background-color: gray; font-size: 20px; margin-bottom: 20px; "><strong> LE PROPRIETAIRE</strong></p> <strong> TEIXEIRAROMAIN </strong><br><br><br> representé : </td>
+                <p style="background-color: gray; font-size: 20px; margin-bottom: 20px; "><strong> LE PROPRIETAIRE</strong></p> <strong> {% edl["logement"]["proprietaire"] %} </strong><br><br><br> representé : </td>
             <td width=" 50px " height="50px ">
-                <p style="background-color: gray; font-size: 20px; margin-bottom: 20px;"><strong>INFORMATIONS ADMINISTRATIVES</strong></p> <br><strong>Entré le </strong>: ____________ <strong> sortie le :__________ </strong><br> <strong> Date état des lieux entrant </strong><br> <strong> Nouvelle adresse </strong>: </td>
+                <p style="background-color: gray; font-size: 20px; margin-bottom: 20px;"><strong>INFORMATIONS ADMINISTRATIVES</strong></p> <br><strong>Entré le </strong>:{% edl["date_entree"] %}<strong> sortie le :{% edl["date_sortie"] %}</strong><br> <strong> Date état des lieux entrant: {% edl["date_edl"] %} </strong><br> <strong> Nouvelle adresse </strong>: </td>
         </tr>
     </table> <br><br>
     <br><br>
@@ -286,8 +286,11 @@
         </tr>
         <tr>
             <td><img src=" " width="100 " height="130 "> <br></td>
-            <td>B1</td>
-            <td>C1</td>
+            <td></td>
+            <td>{% edl["user"]["nom"] %}
+                {% edl["user"]["prenom"] %}
+                {% edl["user"]["email"] %}
+            </td>
         </tr>
 
         <tr>
