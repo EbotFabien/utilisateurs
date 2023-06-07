@@ -2,7 +2,7 @@ from flask import render_template, url_for,flash,redirect,request,abort,Blueprin
 from app import db,bcrypt,create_app
 import random
 from flask_cors import CORS,cross_origin
-from flask_wkhtmltopdf import Wkhtmltopdf
+###from flask_wkhtmltopdf import Wkhtmltopdf
 import os
 import base64
 
@@ -10,7 +10,7 @@ pd_f =Blueprint('pd_f',__name__)
 
 app= create_app()
 
-wkhtmltopdf =Wkhtmltopdf(app)
+wkhtmltopdf =2#Wkhtmltopdf(app)
 
 
 
