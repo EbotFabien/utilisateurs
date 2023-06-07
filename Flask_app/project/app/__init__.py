@@ -47,13 +47,13 @@ def create_app(config_class=Config):
     from app.entity.agentc.routes import agentcon
     from app.entity.admin.routes import admin
     from app.entity.client.routes import client
-    from app.entity.pdf.routes import pd_f
+    #from app.entity.pdf.routes import pd_f
     
     app.register_blueprint(users)
     app.register_blueprint(agentcon)
     app.register_blueprint(admin)
     app.register_blueprint(client)
-    app.register_blueprint(pd_f)
+    #app.register_blueprint(pd_f)
 
    
     
