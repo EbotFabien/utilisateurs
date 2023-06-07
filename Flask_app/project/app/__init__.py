@@ -15,7 +15,7 @@ from flask_cors import CORS
 #credentials.Certificate('/work/www/microservice_edl/utilisateur/Flask_app/project/app/key.json')
 
 
-cred = credentials.Certificate('C:/Users/user/Desktop/Micro service AMS V2/utlisateur/Flask_app/project/app/key.json')
+cred = credentials.Certificate('/work/www/microservice_edl/utilisateur/Flask_app/project/app/key.json')
 default_app = initialize_app(cred)
 db = firestore.client()
 bcrypt = Bcrypt()
