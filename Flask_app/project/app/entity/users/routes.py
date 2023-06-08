@@ -3,7 +3,7 @@ from app import db,bcrypt
 import random
 from flask_cors import CORS,cross_origin
 from firebase_admin import credentials, firestore
-from google.cloud.firestore_v1.base_query import FieldFilter, Or
+#from google.cloud.firestore_v1.base_query import FieldFilter, Or
 
 
 agent_sec = db.collection('Utilisateurs')
@@ -47,7 +47,7 @@ def read(start,limit):
     
     return  401
 
-@users.route('/Agentsec/search/<Type>/<category>', methods=['GET'])
+'''@users.route('/Agentsec/search/<Type>/<category>', methods=['GET'])
 def search_ind(Type=None,category=None):
     if Type == None:
         filter_1 = FieldFilter("email", "==", category)
@@ -80,7 +80,7 @@ def search_ind(Type=None,category=None):
             v=doc.to_dict()
             v["id"]=doc.id
             all_todos.append(v)
-        return jsonify(all_todos), 200
+        return jsonify(all_todos), 200'''
     
 
 @cross_origin(origin=["http://127.0.0.1","http://195.15.228.250","*"],headers=['Content-Type','Authorization'])
